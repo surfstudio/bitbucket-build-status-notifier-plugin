@@ -192,7 +192,7 @@ class BitbucketBuildStatusHelper {
         //http://jenkins.surfstudio.ru/job/${script.env.JOB_NAME}/
         String absoluteUrl = project.getAbsoluteUrl();
         String[] splittedAbsoluteUrl = absoluteUrl.split("/");
-        String jobName = splittedAbsoluteUrl[splittedAbsoluteUrl.length - 2];
+        String jobName = splittedAbsoluteUrl[splittedAbsoluteUrl.length - 1];
         String jenkinsUrl = splittedAbsoluteUrl[0]+"//"+splittedAbsoluteUrl[2];
         String buildPipelineUrl = jenkinsUrl + "/blue/organizations/jenkins/" + jobName + "/detail/" + jobName + "/" + build.getNumber() +"/pipeline/";
         return buildPipelineUrl;
