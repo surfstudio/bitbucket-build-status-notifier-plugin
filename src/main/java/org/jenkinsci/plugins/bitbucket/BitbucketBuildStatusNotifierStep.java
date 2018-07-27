@@ -198,7 +198,7 @@ public class BitbucketBuildStatusNotifierStep extends AbstractStepImpl {
             logger.info("Got commit id " + commitId);
             logger.info("Got repo slug = " + repoSlug);
 
-            String buildUrl = BitbucketBuildStatusHelper.buildUrlFromBuild(build);
+            String buildUrl = BitbucketBuildStatusHelper.buildPiplineUrlFromBuild(build);
 
             BitbucketBuildStatus buildStatus = new BitbucketBuildStatus(buildState, buildKey, buildUrl, buildName,
                     buildDescription);
