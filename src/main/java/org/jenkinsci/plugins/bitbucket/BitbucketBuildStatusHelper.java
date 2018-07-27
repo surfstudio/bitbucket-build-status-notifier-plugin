@@ -186,6 +186,18 @@ class BitbucketBuildStatusHelper {
         return project.getAbsoluteUrl() + build.getNumber() + '/';
     }
 
+    public static String buildPiplineUrlFromBuild(Run<?, ?> build) {
+        Job<?, ?> project = build.getParent();
+        //${script.env.JENKINS_URL}blue/organizations/jenkins/${script.env.JOB_NAME}/detail/${script.env.JOB_NAME}/${script.env.BUILD_NUMBER}/pipeline
+        //http://jenkins.surfstudio.ru/job/${script.env.JOB_NAME}/
+        String absoluteUrl = project.getAbsoluteUrl();
+        String[] splittedAbsoluteUrl = absoluteUrl.split("/");
+        String jobName = splittedAbsoluteUrl[splittedAbsoluteUrl.length - 2];
+        String jenkinsUrl = splittedAbsoluteUrl[0]+"//"+splittedAbsoluteUrl[2];
+        String buildPipelineUrl = jenkinsUrl + "/blue/organizations/jenkins/" + jobName + "/detail/" + jobName + "/" + build.getNumber() +"/pipeline/";
+        return buildPipelineUrl;
+    }
+
     private static BitbucketBuildStatus createBitbucketBuildStatusFromBuild(Run<?, ?> build, boolean overrideLatestBuild) throws Exception {
         String buildKey = "";
         String buildName = "";
