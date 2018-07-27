@@ -244,14 +244,15 @@ class BitbucketBuildStatusHelper {
 
             // if previous build was manually aborted by the user and revision is the same than the current one
             // then update the bitbucket build status resource with current status and current build number
-            for (BitbucketBuildStatusResource prevBuildStatusResource : prevBuildStatusResources) {
+            // Dirty HACK - duplicate and not updated statuses on bitbucked when use this plugin in pipeline
+            /*for (BitbucketBuildStatusResource prevBuildStatusResource : prevBuildStatusResources) {
                 if (prevBuildStatusResource.getCommitId().equals(buildStatusResource.getCommitId())) {
                     BitbucketBuildStatus prevBuildStatus = createBitbucketBuildStatusFromBuild(prevBuild, overrideLatestBuild);
                     buildStatus.setKey(prevBuildStatus.getKey());
 
                     break;
                 }
-            }
+            }*/
 
             if(repoSlug != null && commitId != null) {
                 buildStatusResource = new BitbucketBuildStatusResource(buildStatusResource.getOwner(), repoSlug, commitId);
