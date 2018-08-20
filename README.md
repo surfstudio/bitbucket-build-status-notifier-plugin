@@ -1,3 +1,8 @@
+#### Surf version of "Bitbucket Cloud build status notifier plugin for Jenkins"
+Changes placed in "surf" branch.
+
+To build a plugin, run mvn install. This will create the file ./target/pluginname.hpi that you can deploy to Jenkins.
+
 # Bitbucket Cloud build status notifier plugin for Jenkins - [![Build Status][jenkins-status]][jenkins-builds]
 
 Every time you trigger a build, you don't have to log in to your build server to see if it passed or failed. Now
