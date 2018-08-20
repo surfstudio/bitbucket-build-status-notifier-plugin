@@ -1,5 +1,5 @@
 #### Surf version of "Bitbucket Cloud build status notifier plugin for Jenkins"
-Changes placed in "surf" branch.
+Changes is placed in "surf" branch.
 
 To build a plugin, run mvn install. This will create the file ./target/pluginname.hpi that you can deploy to Jenkins.
 
